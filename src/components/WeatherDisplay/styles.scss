@@ -9,7 +9,11 @@
 
     h1 {
         color: #000;
-        font-size: 85px;
+        font-size: 55px;
+
+        @include tablet {
+            font-size: 85px;
+        }
     }
     .title-top-container {
         display: flex;
@@ -36,18 +40,34 @@
     h1 {
         color: #000;
         font-weight: 500;
-        font-size: 140px;
+        font-size: 85px;
         margin-bottom: 0;
+        @include tablet {
+            font-size: 140px;
+        }
     }
     p {
-        font-size: 48px;
+        font-size: 22px;
+        @include phone {
+            font-size: 28px;
+        }
+        @include tablet {
+            font-size: 48px;
+        }
     }
     ul {
         display: flex;
         li {
-            margin: 0 35px;
+            margin: 0 20px;
             font-weight: 200;
-            font-size: 22px;
+            font-size: 15px;
+            @include phone {
+                font-size: 21px;
+                margin: 0 35px;
+            }
+            @include tablet {
+                font-size: 22px;
+            }
         }
     }
 }
@@ -58,15 +78,31 @@
         width: 100%;
         display: flex;
         justify-content: space-evenly;
+        margin-top: 15px;
+        @include tablet {
+            margin-top: 0;
+        }
         li {
             h5 {
                 font-weight: 400;
-                font-size: 36px;
+                font-size: 18px;
+                @include phone {
+                    font-size: 21px;
+                }
+                @include tablet {
+                    font-size: 36px;
+                }
             }
 
             span {
                 font-weight: 300;
-                font-size: 22px;
+                font-size: 16px;
+                @include phone {
+                    font-size: 22px;
+                }
+                @include tablet {
+                    font-size: 24px;
+                }
             }
         }
     }

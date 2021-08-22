@@ -7,7 +7,6 @@ const Loader = () => {
 };
 
 const DayWeatherData = ({day}) => {
-  const { id } = day.current.weather[0]
   return(
     <li>
       <div className="previous-day-weather">

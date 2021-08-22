@@ -28,9 +28,14 @@ body {
         border-bottom-left-radius: 15px;
         background-color: $secondary-bg-color;
         display: flex;
+        flex-direction: column;
         width: 1440px;
         height: 95%;
-    
+        
+        @include desktop {
+            flex-direction: row;
+        }
+        
         .container-left {
             display: flex;
             flex-direction: column;
