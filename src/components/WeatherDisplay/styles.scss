@@ -11,6 +11,20 @@
         color: #000;
         font-size: 85px;
     }
+    .title-top-container {
+        display: flex;
+        justify-content: space-between;
+
+        .reset-btn {
+            background-color: $tertiary-bg-color;
+            padding: 10px;
+            color: white;
+            cursor: pointer;
+            border: none;
+            font-size: 20px;
+            text-transform: uppercase;
+        }
+    }
 }
 
 .center-weather-info {

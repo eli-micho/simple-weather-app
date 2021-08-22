@@ -3,15 +3,18 @@ import { useState } from 'react';
 import './styles.scss';
 
 const Loader = () => {
-  return <span className="loader"></span>
+  return <span className="loading"></span>
 };
 
-export default function WeatherDisplay({currentWeatherData, ...otherProps}) {
+export default function WeatherDisplay({currentWeatherData, handleReset, ...otherProps}) {
   const { name, main, weather, wind, visibility } = currentWeatherData;
     return (
           <>
             <div className="title-container">
-              <p>{DateTime.now().toLocaleString(DateTime.DATE_MED)}</p>
+              <div className="title-top-container">
+                <p>{DateTime.now().toLocaleString(DateTime.DATE_MED)}</p>
+                <button className="reset-btn" onClick={handleReset}>Reset</button>
+              </div>
               <h1>{name ? name : <Loader/>}</h1>
             </div>
 

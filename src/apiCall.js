@@ -18,18 +18,20 @@ export const returnWeatherCall = async (city) => {
     const previousDays = getLastFiveDays(yesterday)
     let weatherData = { 
         currentWeatherData: [], 
-        historicalWeatherData: []
+        historicalWeatherData: [],
     };
+    try {
+        const currentData = await axios.get(`${process.env.REACT_APP_URL}/weather?q=${city}&units=metric&appid=${process.env.REACT_APP_API_KEY}`)
+        const latitude = currentData.data.coord.lat;
+        const longitude = currentData.data.coord.lon;
 
-    const currentData = await axios.get(`${process.env.REACT_APP_URL}/weather?q=${city}&units=metric&appid=${process.env.REACT_APP_API_KEY}`)
-    const latitude = currentData.data.coord.lat;
-    const longitude = currentData.data.coord.lon;
-
-    weatherData.currentWeatherData = currentData.data;
-    weatherData.historicalWeatherData = await Promise.all(previousDays.map(async (day, i) => {
-        const res = await axios.get(`${process.env.REACT_APP_URL}/onecall/timemachine?lat=${latitude}&lon=${longitude}&units=metric&dt=${day}&appid=${process.env.REACT_APP_API_KEY}`);
-        return res.data
-    }));
-
+        weatherData.currentWeatherData = currentData.data;
+        weatherData.historicalWeatherData = await Promise.all(previousDays.map(async (day, i) => {
+            const res = await axios.get(`${process.env.REACT_APP_URL}/onecall/timemachine?lat=${latitude}&lon=${longitude}&units=metric&dt=${day}&appid=${process.env.REACT_APP_API_KEY}`);
+            return res.data
+        }));
+    }catch(err){
+        return err.response
+    }
     return weatherData
 }

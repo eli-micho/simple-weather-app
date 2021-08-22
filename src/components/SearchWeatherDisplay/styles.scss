@@ -15,6 +15,13 @@
     }
 }
 
+.error-container {
+    color: white;
+    position: absolute;
+    top: 95px;
+    animation: text-fade-in 0.3s ease-in;
+}
+
 h1 {
     color: #ffffff;
     font-size: 72px;

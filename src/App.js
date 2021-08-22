@@ -37,8 +37,9 @@ function App() {
   const [longitude, setLongitude] = useState([]);
   const [weatherData, setWeatherData] = useState({ 
     currentWeatherData: [], 
-    historicalWeatherData: []
-  })
+    historicalWeatherData: [],
+  });
+  const [error, setError] = useState(false);
   const [input, setInput] = useState("");
 
   useEffect(() => {
@@ -63,8 +64,20 @@ function App() {
   const handleSubmit = async (e) => {
       e.preventDefault();
       const city = input;
-      const newData = await returnWeatherCall(city)
-      setWeatherData({currentWeatherData: newData.currentWeatherData, historicalWeatherData: newData.historicalWeatherData})
+      const newData = await returnWeatherCall(city);
+      if(newData.status === 404){
+        setError(true)
+        return
+      }else {
+        setError(false)
+        setWeatherData({currentWeatherData: newData.currentWeatherData, historicalWeatherData: newData.historicalWeatherData})
+      }
+     
+  };
+
+  //Not the best way to handle clearing state but implemented due to time constraints
+  const handleReset = () => {
+    window.location.reload()
   };
 
   const handleChange = (e) => {
@@ -77,6 +90,7 @@ function App() {
         left={
           <WeatherDisplay
             currentWeatherData={weatherData.currentWeatherData}
+            handleReset={handleReset}
           />
         }
         right={
@@ -86,6 +100,7 @@ function App() {
             historicalWeatherData={weatherData.historicalWeatherData}
             handleSubmit={handleSubmit}
             handleChange={handleChange}
+            error={error}
           /> 
           )}
       />
