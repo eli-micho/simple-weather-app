@@ -7,8 +7,8 @@ import SearchWeatherDisplay from './components/SearchWeatherDisplay/SearchWeathe
 import WeatherDisplay from './components/WeatherDisplay/WeatherDisplay';
 require('dotenv').config();
 
-const getLastFiveDays = (today) => {
-  let currentDay = parseInt(today);
+const getLastFiveDays = (yesterday) => {
+  let currentDay = parseInt(yesterday);
   const daysArray = []
   for(let i = 0; i < 5; i++){
     daysArray.push(currentDay)
@@ -31,8 +31,8 @@ function SplitPane(props) {
 }
 
 function App() {
-  const today = DateTime.now().toSeconds().toFixed(0);
-  const [previousDays, setPreviousDays] = useState(getLastFiveDays(today))
+  const yesterday = DateTime.now().toSeconds().toFixed(0) - 86400;
+  const [previousDays, setPreviousDays] = useState(getLastFiveDays(yesterday))
   const [latitude, setLatitude] = useState([]);
   const [longitude, setLongitude] = useState([]);
   const [weatherData, setWeatherData] = useState({ 

@@ -10,7 +10,10 @@ const DayWeatherData = ({day}) => {
   return(
     <li >
       <div className="previous-day-weather">
-        <span>{DateTime.fromSeconds(day.current.dt).toLocaleString(DateTime.DATE_FULL)}</span>
+        <div className="date-container">
+          <span>{DateTime.fromSeconds(day.current.dt).toLocaleString({day: 'numeric'})}</span>
+          <span>{DateTime.fromSeconds(day.current.dt).toLocaleString({weekday: 'long'})}</span>
+        </div>
         <span>{day.current.temp.toFixed(0)}&#176;C</span>
         <WiDaySunny/>
       </div>

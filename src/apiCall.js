@@ -1,10 +1,10 @@
 import {DateTime} from 'luxon';
 import axios from 'axios';
 
-const today = DateTime.now().toSeconds().toFixed(0);
+const yesterday = DateTime.now().toSeconds().toFixed(0) - 86400;
 
-const getLastFiveDays = (today) => {
-    let currentDay = parseInt(today);
+const getLastFiveDays = (yesterday) => {
+    let currentDay = parseInt(yesterday);
     const daysArray = []
     for(let i = 0; i < 5; i++){
       daysArray.push(currentDay)
@@ -15,7 +15,7 @@ const getLastFiveDays = (today) => {
   
 
 export const returnWeatherCall = async (city) => {
-    const previousDays = getLastFiveDays(today)
+    const previousDays = getLastFiveDays(yesterday)
     let weatherData = { 
         currentWeatherData: [], 
         historicalWeatherData: []
