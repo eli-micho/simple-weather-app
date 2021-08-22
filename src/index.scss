@@ -16,7 +16,6 @@ body {
     font-family: $main-font;
 }
 
-
 .app {
     background-color: $bg-color;
     display: flex;
@@ -39,127 +38,17 @@ body {
             justify-content: space-between;
             flex: 8;
             padding: 30px;
-            .title-container {
-                width: 100%;
-
-                p {
-                    font-size: 24px;
-                }
-
-                h1 {
-
-                    font-size: 85px;
-                }
-            }
-
-            .center-weather-info {
-                width: 100%;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                
-                h1 {
-                    font-weight: 500;
-                    font-size: 140px;
-                    margin-bottom: 0;
-                }
-                p {
-                    font-size: 48px;
-                }
-                ul {
-                    display: flex;
-                    li {
-                        margin: 0 35px;
-                        font-weight: 200;
-                        font-size: 22px;
-                    }
-                }
-            }
-
-            .bottom-weather-info {
-                width: 100%;
-                ul {
-                    width: 100%;
-                    display: flex;
-                    justify-content: space-evenly;
-                    li {
-                        h5 {
-                            font-weight: 400;
-                            font-size: 36px;
-                        }
-
-                        span {
-                            font-weight: 300;
-                            font-size: 22px;
-                        }
-                    }
-                }
-            }
+            
         }
         .container-right {
-            
             flex: 4;
             background-color: #303841;
             display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: space-between;
-                padding: 15px;
-           
-                
-                .search-form {
-                    width: 100%;
-                    height: 50px;
-                    display: flex;
-                    align-items: center;
-                    #search-input {
-                        width: 80%;
-                        padding: 15px 10px;
-                    }
-                    #submit-btn {
-                        margin-left: 10px;
-                        cursor: pointer;
-                        width: 20%;
-                        padding: 15px 5px;
-                    }
-                }
-
-                h1 {
-                    color: #ffffff;
-                    font-size: 72px;
-                    font-weight: 600;
-                }
-
-                .previous-weather-container {
-                    width: 100%;
-
-                    p {
-                        color: #ffffff;
-                        font-size: 24px;
-                    }
-
-                    ul {
-
-                        width: 100%;
-                        display: flex;
-                        flex-direction: column;
-                        justify-content: space-between;
-
-                        li {
-                            margin: 15px 0;
-                            .previous-day-weather {
-                                font-size: 22px;
-                                padding: 0 12px;
-                                display: flex;
-                                align-items: center;
-                                justify-content: space-between;
-                                height: 65px;
-                                background-color: #ffffff;
-                            }
-                        }
-                    }
-                }
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px;
+               
         }
     }
 }

@@ -1,5 +1,10 @@
 import { WiDaySunny } from 'react-icons/wi';
 import { DateTime } from 'luxon';
+import './styles.scss';
+
+const Loader = () => {
+  return <span className="loader"></span>
+};
 
 const DayWeatherData = ({day}) => {
   return(
@@ -19,7 +24,7 @@ export default function SearchWeatherDisplay({ input, handleSubmit, handleChange
               <input 
                   placeholder="Search a location" 
                   id="search-input" 
-                  onChange={handleChange}
+                  onChange={(e) => handleChange(e.target.value)}
               />
               <input 
                   type="submit" 
@@ -34,13 +39,16 @@ export default function SearchWeatherDisplay({ input, handleSubmit, handleChange
             <p>Past 5 Days</p>
             <hr/>
             <ul>
-              {historicalWeatherData
+              {historicalWeatherData != undefined ? 
+              historicalWeatherData
               .sort((a,b) => a.index - b.index)
               .map((day, i) => {
                 return <DayWeatherData index={i} key={i} day={day}/>
-              })}
+              })
+              :  <Loader/>
+              }
             </ul>
           </div>
       </>
   )
-}
+};
