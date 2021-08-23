@@ -1,4 +1,3 @@
-import { WiDaySunny, WiCloudy, WiThunderstorm, WiSnow } from 'react-icons/wi';
 import { DateTime } from 'luxon';
 import './styles.scss';
 
@@ -36,7 +35,7 @@ export default function SearchWeatherDisplay({ input, handleSubmit, handleChange
                   id="submit-btn"
               />
           </form>
-          {error == true && (
+          {error === true && (
             <div className="error-container">
               <h4>City not found</h4>
             </div>

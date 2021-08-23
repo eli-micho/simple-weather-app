@@ -1,5 +1,4 @@
 import { DateTime } from 'luxon';
-import { useState } from 'react';
 import './styles.scss';
 
 const Loader = () => {

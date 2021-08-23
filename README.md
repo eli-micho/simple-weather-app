@@ -14,6 +14,6 @@ This app was created to demonstrate sufficiency with front-end development.
 
 ### Possible Improvements
 
-Due to time contrainsts, the highest quality product was not necessarily delivered. Some areas for improvement.
+Some areas for improvement.
 - Incorporate animation library (like react-spring) for smoother animations.
-- Proper form validation and error handling.
+- Better responsive design (horizontal scrolling).
