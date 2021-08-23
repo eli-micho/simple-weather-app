@@ -11,7 +11,7 @@ This app was created to demonstrate sufficiency with front-end development.
 
 ## Live Demo
 
-    [Demo](https://eli-micho.github.io/simple-weather-app/)
+[Demo](https://eli-micho.github.io/simple-weather-app/)
 
 ## How to use
 - Clone repository.
